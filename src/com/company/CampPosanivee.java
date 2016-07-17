@@ -3,6 +3,9 @@ package com.company;
 import java.util.Scanner;
 import java.io.*;
 
+import static com.company.BST.INORDER;
+import static com.company.BST.PREORDER;
+
 /****************************************************************************
  * CampPosanivee
  * The program will keep track of who is enrolled for the two-week summer
@@ -83,21 +86,25 @@ public class CampPosanivee {
                 System.out.println("New camper " + o.getName() + " " + "of age " + o.getAge() + " and gender " + o.getGender() + " added ");
 
             }
-            //if line starts with 'W', dequeue/delete camper
+            //if line starts with 'W', dequeue/delete camper. I NEED TO FIGURE THIS OUT!!
             if (action == 'W') {
-                //Camper o = (Camper) Q.dequeue();
-                //System.out.println(o.toString());
-                //System.out.println("Camper " + o.name + " withdrawn");
+                Q.dequeue();
+               // System.out.println();
+                //System.out.println("Camper " + o.getName() + " withdrawn");
             }
 
             //if line starts with 'D', display age and gender of the camper
-            //if (action == 'D') {
-            //System.out.println("The age and gender of camper" + o.getName() + "is" + o.getAge() + o.getGender());
-            //}
+            if (action == 'D') {
+                //Search for name( line [1]) and return the age and gender
+
+            //It's right up until line[1]. Need to figure out how to get info from BST!!
+                System.out.println("The age and gender of camper " + line[1] + " is" + PREORDER);
+            }
 
             //if line starts with 'L', list campers' names in alphabetical order
             if (action == 'L') {
-                System.out.println("The campers' names are: ");//add a way to print all names of campers in queue in alphabetical order
+                //INORDER is not the correct way to do this but idk what to do!
+                System.out.println("The campers' names are: " + INORDER);//add a way to print all names of campers in queue in alphabetical order
             }
 
             //if line starts with 'S', print the number of boy and girl campers
@@ -109,9 +116,11 @@ public class CampPosanivee {
             //if line starts with 'P', print all campers' names in preorder
             if (action == 'P') {
                 //Traverse in preorder. HOW???
-                System.out.println("The campers' names in preorder is: ");//add a way to print all names in queue in preorder
-                System.out.println(Q.toString());
+                System.out.println("The campers' names in preorder is: " + PREORDER);//add a way to print all names in queue in preorder
+                System.out.println();
+                
             }
+
 
             //if line starts with 'Q', quit
             else if (action == 'Q') {

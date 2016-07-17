@@ -5,6 +5,8 @@ E Pooh 31 M
 L 
 D Tigger 
 E Rabbit 30 M
+D Rabbit
+W Rabbit
 S 
 E Eeyore 36 M 
 W Kanga 

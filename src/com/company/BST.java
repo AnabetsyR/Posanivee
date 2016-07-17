@@ -1,7 +1,5 @@
 package com.company;
 
-import static com.company.CampPosanivee.o;
-
 /****************************************************************************
  * Binary Search Tree class
  *
@@ -147,7 +145,7 @@ public class BST {
         traverse(root, order);
     }
 
-    private void traverse(treenode r, int order) {
+    public void traverse(treenode r, int order) {
         if (r == null)
             return;
 
