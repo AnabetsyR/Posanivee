@@ -20,7 +20,7 @@ public interface Queue < T >{
     // Observers/Accessors
     public T getFront();
 
-    public int size();
+    public int Size();
 
     public boolean isEmpty();
 

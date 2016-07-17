@@ -12,6 +12,10 @@ import static com.company.CampPosanivee.o;
  * @instructor Dr. Jeremy Lanman
  *****************************************************************************/
 public class QueueLL < T > implements Queue < T > {
+    public QueueLL() {
+
+    }
+
     private class node {
         public Object data;
         public node next;
@@ -43,10 +47,10 @@ public class QueueLL < T > implements Queue < T > {
 
     }
 
-    @Override
-    public String toString(){
-        return o.getName()+":"+o.getAge()+" ";
-    }
+    //@Override
+    //public String toString(){
+        //return o.getName()+":" +o.getAge()+ " ";
+    //}
 
     public T dequeue() {
         if (isEmpty())
@@ -71,7 +75,8 @@ public class QueueLL < T > implements Queue < T > {
         return (T) front.data;
     }
 
-    public int size() {
+
+    public int Size() {
 
         return count;
     }

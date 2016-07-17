@@ -1,5 +1,7 @@
 package com.company;
 
+import static com.company.CampPosanivee.o;
+
 /****************************************************************************
  * Binary Search Tree class
  *
@@ -18,7 +20,7 @@ public class BST {
 
     treenode root;  // ref to the root of the bst
     int count;
-    private Queue Q; // create  for info
+    public Queue Q; // create  for info
 
     public static final int PREORDER = 0;
     public static final int INORDER = 1;
@@ -27,33 +29,29 @@ public class BST {
     public BST() { // create an empty BST object
         root = null;
         count = 0;
-        Q = new QueueLL(10);  // create new LL for objects
+        Q = new QueueLL();  // create new LL for objects
     }
-    //Makes the queue empty
+
     public void makeEmpty() {
 
         root = null;
         count = 0;
         Q.makeEmpty();
     }
-    //returns null after emptying the queue
-    public boolean isEmpty() {
 
+    public boolean isEmpty() {
         return root == null;
     }
-    //Returns the size of the tree
-    public int size() {
 
+    public int size() {
         return count;
     }
-    //Looks up a value in the tree
-    public Comparable lookup(Comparable x) {
 
+    public Comparable lookup(Comparable x) {
         return lookup(root, x);
     }
 
-    private Comparable lookup(treenode r, Comparable x) {
-        // base cases
+    private Comparable lookup(treenode r, Comparable x) { // base cases
         if (r == null)
             return null;
         if (r.item.compareTo(x) == 0)
@@ -64,7 +62,7 @@ public class BST {
         else
             return lookup(r.right, x);
     }
-    //Inserts a new value into the tree
+
     public void insert(Comparable x) {
         root = insert(root, x);
         count++;
@@ -142,7 +140,6 @@ public class BST {
     // Iterator functions
 
     public void reset() {
-
         reset(INORDER);
     }
 
@@ -164,32 +161,5 @@ public class BST {
         if (order == POSTORDER)
             Q.enqueue((Camper) r.item);
     }
-
-    public Comparable getNext() {
-
-        return (Comparable) Q.dequeue();
-    }
-
-    public boolean hasNext() {
-
-        return !Q.isEmpty();
-    }
-
-    public void print() {
-
-        print(root);
-    }
-
-    private void print(treenode r) // inorder
-    {
-        // base case: empty tree
-        if (r == null)
-            return;
-        // recursive case
-        print(r.left);
-        System.out.println(r.item);
-        print(r.right);
-    }
-
 }
 

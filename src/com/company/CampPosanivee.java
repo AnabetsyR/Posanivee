@@ -22,12 +22,12 @@ import java.io.*;
  *****************************************************************************/
 public class CampPosanivee {
 
-    static String name;
-    static String age;
-    static String gender;
-    static Camper o = null;
-    static double avgAge;
-    static String Size;
+    //public String name;
+    //public String age;
+    //public String gender;
+    public static Camper o = null;
+    //public double avgAge;
+   // public String Size;
 
     /*************************************************************************
      * main The main method is the controlling method for Camp Posanivee.
@@ -43,7 +43,6 @@ public class CampPosanivee {
 
         //Get the name of the file from the user
         System.out.println("Please, enter the name of the data file: ");
-
 
 
         // Create new Scanner object to read user input
@@ -69,7 +68,7 @@ public class CampPosanivee {
 
             //if line starts with 'A', print the average age of the campers
             if (action == 'A') {
-                System.out.println("The average age of the campers is: " );
+                System.out.println("The average age of the campers is: ");
             }
 
             //if line starts with 'H', print a list of commands
@@ -79,47 +78,51 @@ public class CampPosanivee {
 
             //if line starts with 'E', enqueue/insert camper
             if (action == 'E') {
-                Camper o = new Camper(line[1], Integer.parseInt(line[2]),line[3]);
+                Camper o = new Camper(line[1], Integer.parseInt(line[2]), line[3]);
                 //BST.PREORDER();
-                System.out.println("New camper "+ o.getName() + " " + "of age " + o.getAge() + " added " );
+                System.out.println("New camper " + o.getName() + " " + "of age " + o.getAge() + " added ");
 
             }
             //if line starts with 'W', dequeue/delete camper
             if (action == 'W') {
                 Camper o = (Camper) Q.dequeue();
-                System.out.println("Camper " + name + " withdrawn");
+                System.out.println(o.toString());
+                //System.out.println("Camper " + o.name + " withdrawn");
             }
 
             //if line starts with 'D', display age and gender of the camper
-            if ( action == 'D'){
-                System.out.println("The age and gender of camper" + name + "is" + age + gender);
-            }
+            //if (action == 'D') {
+            //System.out.println("The age and gender of camper" + o.getName() + "is" + o.getAge() + o.getGender());
+            //}
 
             //if line starts with 'L', list campers' names in alphabetical order
-            if ( action == 'L'){
+            if (action == 'L') {
                 System.out.println("The campers' names are: ");//add a way to print all names of campers in queue in alphabetical order
             }
 
             //if line starts with 'S', print the number of boy and girl campers
-            if ( action == 'S'){
+            if (action == 'S') {
                 System.out.println("The number of boys is: ");//add a way to print number of boys from queue
                 System.out.println("The number of girls is:");//add a way to print number of girls from queue
             }
 
             //if line starts with 'P', print all campers' names in preorder
-            if ( action == 'P'){
+            if (action == 'P') {
+                //Traverse in preorder. HOW???
                 System.out.println("The campers' names in preorder is: ");//add a way to print all names in queue in preorder
                 System.out.println(Q.toString());
             }
 
             //if line starts with 'Q', quit
-            else if ( action == 'Q'){
+            else if (action == 'Q') {
                 break;
             }
-
         }
-        System.out.println("***Camp Posanivee Terminated***");
-        System.out.println("Good bye! ");
+
+            System.out.println("***Camp Posanivee Terminated***");
+            System.out.println("Good bye! ");
+        }
     }
-}
+
+
 

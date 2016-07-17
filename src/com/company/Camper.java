@@ -1,8 +1,5 @@
 package com.company;
 
-import static com.company.CampPosanivee.Size;
-
-
 /****************************************************************************
      * Camper class The camper class is intended to create a comparable class of
      * campers. The data structure includes name, age, and gender and the
@@ -60,17 +57,17 @@ import static com.company.CampPosanivee.Size;
             return age;
         }
 
-        // Method for accessing the arrival time of the party.
+        // Method for accessing the gender
         public void setGender(int gender) {
             this.gender = String.valueOf((char) gender);
         }
-        public int getGender() {
+        public static int getGender() {
 
             return getGender();
         }
 
         public void setSize(int Size) {
-            this.Size = String.valueOf((int) Size);
+            this.Size = String.valueOf(Size);
         }
         public String getSize()
         {
