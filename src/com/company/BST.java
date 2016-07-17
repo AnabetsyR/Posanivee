@@ -9,14 +9,14 @@ package com.company;
  * @course MCIS-0503 Fall 2012 Data Structures and Algorithms
  * @instructor Dr. Jeremy Lanman
  *****************************************************************************/
-public class BST {
+public class BST <T> {
 
-    private class treenode {
-        Comparable item;
-        treenode left, right;
+    private class Treenode <E> {
+         Comparable <E> item;
+        Treenode left, right;
     }
 
-    treenode root;  // ref to the root of the bst
+    Treenode root;  // ref to the root of the bst
     int count;
     public Queue Q; // create  for info
 
@@ -48,7 +48,7 @@ public class BST {
         return lookup(root, x);
     }
 
-    private Comparable lookup(treenode r, Comparable x) { // base cases
+    private Comparable lookup(Treenode r, Comparable x) { // base cases
         if (r == null)
             return null;
         if (r.item.compareTo(x) == 0)
@@ -66,10 +66,10 @@ public class BST {
     }
 
     // returns a reference to the root of the tree with x inserted
-    private treenode insert(treenode r, Comparable x) {
+    private Treenode insert(Treenode r, Comparable x) {
         // base case
         if (r == null) {
-            treenode t = new treenode();
+            Treenode t = new Treenode();
             t.item = x;
             t.left = t.right = null;
             return t;
@@ -96,7 +96,7 @@ public class BST {
     }
 
     // returns a reference to the root of the modified tree
-    private treenode delete(treenode r, Comparable x) {
+    private Treenode delete(Treenode r, Comparable x) {
         // base case: all the work is here
         if (r.item.compareTo(x) == 0) {
             // code to handle 3 cases
@@ -124,7 +124,7 @@ public class BST {
         }
     }
 
-    private Comparable min(treenode r) {
+    private Comparable min(Treenode r) {
         // base cases
         if (r == null)
             return null;
@@ -145,7 +145,7 @@ public class BST {
         traverse(root, order);
     }
 
-    public void traverse(treenode r, int order) {
+    public void traverse(Treenode r, int order) {
         if (r == null)
             return;
 

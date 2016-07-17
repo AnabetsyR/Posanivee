@@ -21,7 +21,7 @@ package com.company;
         public String name;
         public int age;
         public static String gender;
-        public String Size;
+        public String size;
 
 
         //n means name, a means age, and g means gender
@@ -43,7 +43,7 @@ package com.company;
         @Override
         public String toString() {
 
-            return getName()+":"+getAge()+" ";
+            return getName()+":"+getAge()+" " + getGender();
         }
 
         //Method for accessing the size of the object.
@@ -69,12 +69,12 @@ package com.company;
 
 
 
-        public void setSize(int Size) {
-            this.Size = String.valueOf(Size);
+        public void setsize(int size) {
+            this.size = String.valueOf(size);
         }
-        public String getSize()
+        public String getsize()
         {
-            return Size;
+            return size;
         }
 
 

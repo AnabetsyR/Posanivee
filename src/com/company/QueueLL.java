@@ -24,15 +24,14 @@ public class QueueLL < T > implements Queue < T > {
     node front, back;
     int count;
 
-    public QueueLL(int i) {
-
-        makeEmpty();
-    }
+    // QueueLL(int i) {
+        //makeEmpty();
+    //}
 
     // Transformers/Mutators
-    public void enqueue(Object x) {
+    public void enqueue(T element) {
         node nn = new node();
-        nn.data = x;
+        nn.data = element;
         nn.next = null;
         if (isEmpty())
             front = nn;
@@ -42,10 +41,15 @@ public class QueueLL < T > implements Queue < T > {
         count++;
     }
 
-    @Override
-    public void enqueue(Camper o) {
+    //@Override
+    //public T dequeue() {
+        //return null;
+    //}
 
-    }
+    //@Override
+    //public void enqueue(Camper o) {
+
+    //}
 
     //@Override
     //public String toString(){
@@ -73,6 +77,11 @@ public class QueueLL < T > implements Queue < T > {
         if (isEmpty())
             return null;
         return (T) front.data;
+    }
+
+    @Override
+    public int size() {
+        return 0;
     }
 
 

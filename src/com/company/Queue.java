@@ -11,7 +11,9 @@ package com.company;
  *****************************************************************************/
 public interface Queue < T >{
     // Transformers/Mutators
-    public void enqueue(Camper o);
+    public void enqueue(T o);
+
+    //void enqueue(Camper o);
 
     public T dequeue();
 
@@ -20,7 +22,7 @@ public interface Queue < T >{
     // Observers/Accessors
     public T getFront();
 
-    public int Size();
+    public int size();
 
     public boolean isEmpty();
 
