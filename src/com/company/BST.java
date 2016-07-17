@@ -11,12 +11,12 @@ package com.company;
  *****************************************************************************/
 public class BST <T> {
 
-    private class Treenode <E> {
-         Comparable <E> item;
-        Treenode left, right;
+    private class Node <E> {
+        Comparable <E> item;
+        Node left, right;
     }
 
-    Treenode root;  // ref to the root of the bst
+    Node root;  // ref to the root of the bst
     int count;
     public Queue Q; // create  for info
 
@@ -48,12 +48,12 @@ public class BST <T> {
         return lookup(root, x);
     }
 
-    private Comparable lookup(Treenode r, Comparable x) { // base cases
+    private Comparable lookup(Node r, Comparable x) { // base cases
         if (r == null)
             return null;
         if (r.item.compareTo(x) == 0)
             return r.item;
-        // recursive case
+         //recursive case
         if (x.compareTo(r.item) < 0)
             return lookup(r.left, x);
         else
@@ -66,10 +66,10 @@ public class BST <T> {
     }
 
     // returns a reference to the root of the tree with x inserted
-    private Treenode insert(Treenode r, Comparable x) {
+    private Node insert(Node r, Comparable x) {
         // base case
         if (r == null) {
-            Treenode t = new Treenode();
+            Node t = new Node();
             t.item = x;
             t.left = t.right = null;
             return t;
@@ -96,7 +96,7 @@ public class BST <T> {
     }
 
     // returns a reference to the root of the modified tree
-    private Treenode delete(Treenode r, Comparable x) {
+    private Node delete(Node r, Comparable x) {
         // base case: all the work is here
         if (r.item.compareTo(x) == 0) {
             // code to handle 3 cases
@@ -124,7 +124,7 @@ public class BST <T> {
         }
     }
 
-    private Comparable min(Treenode r) {
+    private Comparable min(Node r) {
         // base cases
         if (r == null)
             return null;
@@ -145,7 +145,7 @@ public class BST <T> {
         traverse(root, order);
     }
 
-    public void traverse(Treenode r, int order) {
+    public void traverse(Node r, int order) {
         if (r == null)
             return;
 

@@ -64,7 +64,7 @@ public class CampPosanivee {
             for (int i = 4; i < line.length; i++)
                 line[1] += " " + line[i];
 
-            //BST Tree = new BST();
+            BST Tree = new BST();
             QueueLL Q = new QueueLL();
 
             char action = line[0].charAt(0);
@@ -89,11 +89,11 @@ public class CampPosanivee {
             //if line starts with 'W', dequeue/delete camper. I NEED TO FIGURE THIS OUT!!
             if (action == 'W') {
                 //System.in =
-                Camper o = (Camper) Q.dequeue();
+                Object o = Q.dequeue();
 
                 //Camper o = (Camper) Q.dequeue();
                 // System.out.println();
-                System.out.println("Camper " + o.getName() + " withdrawn");
+               // System.out.println("Camper " + Q.dequeue(o) + " withdrawn");
             }
 
             //if line starts with 'D', display age and gender of the camper
