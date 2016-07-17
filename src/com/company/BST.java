@@ -33,7 +33,6 @@ public class BST {
     }
 
     public void makeEmpty() {
-
         root = null;
         count = 0;
         Q.makeEmpty();

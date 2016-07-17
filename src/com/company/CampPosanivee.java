@@ -24,7 +24,7 @@ public class CampPosanivee {
 
     //public String name;
     //public String age;
-    //public String gender;
+    public char gender;
     public static Camper o = null;
     //public double avgAge;
    // public String Size;
@@ -79,14 +79,14 @@ public class CampPosanivee {
             //if line starts with 'E', enqueue/insert camper
             if (action == 'E') {
                 Camper o = new Camper(line[1], Integer.parseInt(line[2]), line[3]);
-                //BST.PREORDER();
-                System.out.println("New camper " + o.getName() + " " + "of age " + o.getAge() + " added ");
+                Q.enqueue(o);
+                System.out.println("New camper " + o.getName() + " " + "of age " + o.getAge() + " and gender " + o.getGender() + " added ");
 
             }
             //if line starts with 'W', dequeue/delete camper
             if (action == 'W') {
-                Camper o = (Camper) Q.dequeue();
-                System.out.println(o.toString());
+                //Camper o = (Camper) Q.dequeue();
+                //System.out.println(o.toString());
                 //System.out.println("Camper " + o.name + " withdrawn");
             }
 

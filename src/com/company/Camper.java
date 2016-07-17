@@ -20,7 +20,7 @@ package com.company;
 
         public String name;
         public int age;
-        public String gender;
+        public static String gender;
         public String Size;
 
 
@@ -58,13 +58,16 @@ package com.company;
         }
 
         // Method for accessing the gender
-        public void setGender(int gender) {
-            this.gender = String.valueOf((char) gender);
+        public void setGender(char gender) {
+            this.gender = String.valueOf(gender);
         }
-        public static int getGender() {
 
-            return getGender();
+        public static String getGender() {
+
+            return gender;
         }
+
+
 
         public void setSize(int Size) {
             this.Size = String.valueOf(Size);
