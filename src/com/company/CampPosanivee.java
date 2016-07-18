@@ -20,12 +20,11 @@ import java.util.Arrays;
  *
  * @author Anabetsy Rivero
  * @version 1.0
- * @date 07/08/16
- * @course CISC-0503 Summer 2016 Data Structures and Algorithms
- * @instructor Dr. Jeremy Lanman
+ * created on 07/08/16
+ * created for course CISC-0503 Summer 2016 Data Structures and Algorithms
+ * created for instructor Dr. Jeremy Lanman
  *****************************************************************************/
 public class CampPosanivee {
-
 
 
     /*************************************************************************
@@ -69,12 +68,12 @@ public class CampPosanivee {
                 tree.traverse(tree.root, BST.INORDER);
                 double avg = 0;
                 double num = tree.Q.count;
-                for (int i = 0; i < num; i++){
-                    Camper donaldTrump = (Camper)tree.Q.dequeue();
-                    avg += donaldTrump.getAge();
+                for (int i = 0; i < num; i++) {
+                    Camper c = (Camper) tree.Q.dequeue();
+                    avg += c.getAge();
                 }
 
-                System.out.println("The average age of the campers is: "+avg);
+                System.out.println("The average age of the campers is: " + avg);
             }
 
             //if line starts with 'H', print a list of commands
@@ -91,7 +90,7 @@ public class CampPosanivee {
             }
             //if line starts with 'W', delete camper and print his/her info
             if (action == 'W') {
-                Camper c = (Camper)tree.lookup(new Camper(line[1], 0, "x"));
+                Camper c = (Camper) tree.lookup(new Camper(line[1], 0, "x"));
                 tree.delete(c);
                 System.out.println("Camper " + c.getName() + " withdrawn");
             }
@@ -99,9 +98,9 @@ public class CampPosanivee {
             //if line starts with 'D', display age and gender of the camper
             if (action == 'D') {
                 //Prints age and gender of camper upon request from text file.
-                Camper x = (Camper)tree.lookup(new Camper(line[1], 0, "x"));
+                Camper x = (Camper) tree.lookup(new Camper(line[1], 0, "x"));
 
-                System.out.println("The age and gender of camper " + line[1] + " are " + x.getAge()+" and "+x.getGender() );
+                System.out.println("The age and gender of camper " + line[1] + " are " + x.getAge() + " and " + x.getGender());
             }
 
             //if line starts with 'L', list campers' names in alphabetical order
@@ -111,29 +110,37 @@ public class CampPosanivee {
 
             //if line starts with 'S', print the number of boy and girl campers
             if (action == 'S') {
-                System.out.println("The number of boys is: ");//add a way to print number of boys from queue
-                System.out.println("The number of girls is:");//add a way to print number of girls from queue
+                String g = null;
+                double num = tree.Q.count;
+                for (int i = 0; i < num; i++) {
+                    Camper c = (Camper) tree.Q.dequeue();
+                    g += c.getGender();
+                    System.out.println("The number of boys is: " + c.getGender());//add a way to print number of boys from queue
+                    System.out.println("The number of girls is:" + c.getGender());//add a way to print number of girls from queue
+                }
             }
 
-            //if line starts with 'P', print all campers' names in preorder
-            if (action == 'P') {
-                //Prints campers' names in preorder as requested by text file command
-                System.out.println("The campers' names in preorder is: " + PREORDER);
-                System.out.println();
+                //if line starts with 'P', print all campers' names in preorder
+                if (action == 'P') {
+                    //Prints campers' names in preorder as requested by text file command
 
+                    System.out.println("The campers' names in preorder is: " + tree.toString(BST.PREORDER));
+                    System.out.println();
+
+                }
+
+
+                //if line starts with 'Q', quit
+                else if (action == 'Q') {
+                    break;
+                }
             }
 
-
-            //if line starts with 'Q', quit
-            else if (action == 'Q') {
-                break;
-            }
+            System.out.println("***Camp Posanivee Terminated***");
+            System.out.println("Good bye! ");
         }
-
-        System.out.println("***Camp Posanivee Terminated***");
-        System.out.println("Good bye! ");
     }
-}
+
 
 
 

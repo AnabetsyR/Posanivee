@@ -1,15 +1,15 @@
 package com.company;
 
 /****************************************************************************
- * Camper class The camper class is intended to create a comparable class of
+ * Camper class: The camper class is intended to create a comparable class of
  * campers. The data structure includes name, age, and gender and the
  * information is stored in a binary search tree using a queue.
  *
- * @author Name
+ * @author Anabetsy Rivero
  * @version 1.0
- * @date Date
- * @course MCIS-0503 Fall 2012 Data Structures and Algorithms
- * @instructor Dr. Jeremy Lanman
+ * created on 07/08/16
+ * created for course CISC-0503 Summer 2016 Data Structures and Algorithms
+ * created for instructor Dr. Jeremy Lanman
  *****************************************************************************/
 public class Camper implements Comparable<Camper> {
     @Override
@@ -42,7 +42,7 @@ public class Camper implements Comparable<Camper> {
     @Override
     public String toString() {
 
-        return "Camper{ "+getName()+":"+getAge()+" " + getGender()+" }";
+        return "Camper "+getName()+":"+getAge()+" " + getGender();
     }
 
     //Method for accessing the size of the object.

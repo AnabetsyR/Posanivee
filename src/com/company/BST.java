@@ -3,11 +3,11 @@ package com.company;
 /****************************************************************************
  * Binary Search Tree class
  *
- * @author Provided by Instructor
+ * @author Anabetsy Rivero
  * @version 1.0
- * @date Date
- * @course MCIS-0503 Fall 2012 Data Structures and Algorithms
- * @instructor Dr. Jeremy Lanman
+ * created on 07/08/16
+ * created for course CISC-0503 Summer 2016 Data Structures and Algorithms
+ * created for instructor Dr. Jeremy Lanman
  *****************************************************************************/
 public class BST <T> {
 
@@ -135,10 +135,11 @@ public class BST <T> {
     }
 
     // Iterator functions
-
     public void reset() {
         reset(INORDER);
     }
+
+    //public void reser(){reset (PREORDER);}
 
     public void reset(int order) {
         Q.makeEmpty();
@@ -162,6 +163,10 @@ public class BST <T> {
 
     public String toString(){
         reset();
+        return Q.toString();
+    }
+    public String toString(int order){
+        reset(order);
         return Q.toString();
     }
 }
