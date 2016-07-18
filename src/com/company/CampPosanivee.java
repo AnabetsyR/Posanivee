@@ -115,12 +115,12 @@ public class CampPosanivee {
                 int num = tree.Q.count;
                 for (int i = 0; i < num; i++) {
                     Camper c = (Camper) tree.Q.dequeue();
+                    
+                //}
+
+                System.out.println("The number of girls is: " + c.getGender() );
 
                 }
-
-                System.out.println("The number of girls is: " + tree.toString());
-
-                //}
 
                 //System.out.println(num);
                 System.out.println("The number of boys is: " + tree.toString());
