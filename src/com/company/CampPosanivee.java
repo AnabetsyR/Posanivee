@@ -66,14 +66,16 @@ public class CampPosanivee {
             //if line starts with 'A', print the average age of the campers
             if (action == 'A') {
                 tree.traverse(tree.root, BST.INORDER);
-                double avg = 0;
+                double avgAge = 0;
+                double totAge = 0;
                 double num = tree.Q.count;
                 for (int i = 0; i < num; i++) {
                     Camper c = (Camper) tree.Q.dequeue();
-                    avg += c.getAge();
+                    totAge += c.getAge();
+                    avgAge = totAge / num;
                 }
 
-                System.out.println("The average age of the campers is: " + avg);
+                System.out.println("The average age of the campers is: " + avgAge);
             }
 
             //if line starts with 'H', print a list of commands
@@ -110,24 +112,32 @@ public class CampPosanivee {
 
             //if line starts with 'S', print the number of boy and girl campers
             if (action == 'S') {
-                String g = null;
-                double num = tree.Q.count;
+                int num = tree.Q.count;
                 for (int i = 0; i < num; i++) {
                     Camper c = (Camper) tree.Q.dequeue();
-                    g += c.getGender();
-                    System.out.println("The number of boys is: " + c.getGender());//add a way to print number of boys from queue
-                    System.out.println("The number of girls is:" + c.getGender());//add a way to print number of girls from queue
+
                 }
+
+                System.out.println("The number of girls is: " + tree.toString());
+
+                //}
+
+                //System.out.println(num);
+                System.out.println("The number of boys is: " + tree.toString());
+
+
             }
+
+
 
                 //if line starts with 'P', print all campers' names in preorder
                 if (action == 'P') {
                     //Prints campers' names in preorder as requested by text file command
-
                     System.out.println("The campers' names in preorder is: " + tree.toString(BST.PREORDER));
                     System.out.println();
 
                 }
+
 
 
                 //if line starts with 'Q', quit
@@ -140,6 +150,8 @@ public class CampPosanivee {
             System.out.println("Good bye! ");
         }
     }
+
+
 
 
 

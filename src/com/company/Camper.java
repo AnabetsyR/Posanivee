@@ -1,5 +1,7 @@
 package com.company;
 
+import com.sun.jdi.connect.Connector;
+
 /****************************************************************************
  * Camper class: The camper class is intended to create a comparable class of
  * campers. The data structure includes name, age, and gender and the
@@ -21,7 +23,6 @@ public class Camper implements Comparable<Camper> {
     public int age;
     public String gender;
     public String size;
-
 
     //n means name, a means age, and g means gender
     public Camper(String n, int a, String g){
@@ -58,14 +59,17 @@ public class Camper implements Comparable<Camper> {
 
     // Method for accessing the gender
     public void setGender(char gender) {
+
         this.gender = String.valueOf(gender);
+                //String.valueOf(gender);
+
     }
+
 
     public String getGender() {
 
         return gender;
     }
-
 
 
     public void setsize(int size) {
