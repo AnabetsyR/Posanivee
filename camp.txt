@@ -1,7 +1,7 @@
-A 
+S
 E Kanga 26 F 
 E Tigger 28 M 
-E Pooh 31 M 
+E Pooh 31 M
 L 
 D Tigger 
 E Rabbit 30 M
