@@ -5,6 +5,7 @@ import java.io.*;
 
 import static com.company.BST.INORDER;
 import static com.company.BST.PREORDER;
+import java.util.Arrays;
 
 /****************************************************************************
  * CampPosanivee
@@ -25,15 +26,10 @@ import static com.company.BST.PREORDER;
  *****************************************************************************/
 public class CampPosanivee {
 
-    //public String name;
-    //public String age;
-    public char gender;
-    public static Camper o = null;
-    //public double avgAge;
-   // public String Size;
+
 
     /*************************************************************************
-     * main The main method is the controlling method for Camp Posanivee.
+     * The main method is the controlling method for Camp Posanivee.
      * Preconditions: must have properly formatted data file.
      * Postconditions: be able to create a Queue and BST for data.
      *
@@ -51,27 +47,34 @@ public class CampPosanivee {
         // Create new Scanner object to read user input
         Scanner sc = new Scanner(System.in);
         String fileName = sc.nextLine();
-        //System.out.println(fileName);
         Scanner fileToRead = new Scanner(new File(fileName));
 
-        //**** Here I may need to create the linked list. Similar to QueueArray!
 
         //Sets the condition for reading the first character of each line in file.
         boolean flag = true;
+        QueueLL<Camper> Q = new QueueLL<>();
+        BST<Camper> tree = new BST<>();
 
         while (fileToRead.hasNext()) {
             String[] line = fileToRead.nextLine().split(" ");
-            for (int i = 4; i < line.length; i++)
-                line[1] += " " + line[i];
+            System.out.println("Command:" + line[0].toString());
+            //System.out.println("Command: "+Arrays.deepToString(line));
+            //System.out.println("Tree: "+tree);
 
-            BST Tree = new BST();
-            QueueLL Q = new QueueLL();
 
             char action = line[0].charAt(0);
 
             //if line starts with 'A', print the average age of the campers
             if (action == 'A') {
-                System.out.println("The average age of the campers is: ");
+                tree.traverse(tree.root, BST.INORDER);
+                double avg = 0;
+                double num = tree.Q.count;
+                for (int i = 0; i < num; i++){
+                    Camper donaldTrump = (Camper)tree.Q.dequeue();
+                    avg += donaldTrump.getAge();
+                }
+
+                System.out.println("The average age of the campers is: "+avg);
             }
 
             //if line starts with 'H', print a list of commands
@@ -82,32 +85,28 @@ public class CampPosanivee {
             //if line starts with 'E', enqueue/insert camper
             if (action == 'E') {
                 Camper o = new Camper(line[1], Integer.parseInt(line[2]), line[3]);
-                Q.enqueue(o);
+                tree.insert(o);
                 System.out.println("New camper " + o.getName() + " " + "of age " + o.getAge() + " and gender " + o.getGender() + " added ");
 
             }
-            //if line starts with 'W', dequeue/delete camper. I NEED TO FIGURE THIS OUT!!
+            //if line starts with 'W', delete camper and print his/her info
             if (action == 'W') {
-                //System.in =
-                Object o = Q.dequeue();
-
-                //Camper o = (Camper) Q.dequeue();
-                // System.out.println();
-               // System.out.println("Camper " + Q.dequeue(o) + " withdrawn");
+                Camper c = (Camper)tree.lookup(new Camper(line[1], 0, "x"));
+                tree.delete(c);
+                System.out.println("Camper " + c.getName() + " withdrawn");
             }
 
             //if line starts with 'D', display age and gender of the camper
             if (action == 'D') {
-                //Search for name( line [1]) and return the age and gender
+                //Prints age and gender of camper upon request from text file.
+                Camper x = (Camper)tree.lookup(new Camper(line[1], 0, "x"));
 
-            //It's right up until line[1]. Need to figure out how to get info from BST!!
-                System.out.println("The age and gender of camper " + line[1] + " is " + PREORDER);
+                System.out.println("The age and gender of camper " + line[1] + " are " + x.getAge()+" and "+x.getGender() );
             }
 
             //if line starts with 'L', list campers' names in alphabetical order
             if (action == 'L') {
-                //INORDER is not the correct way to do this but idk what to do!
-                System.out.println("The campers' names are: " + INORDER);//add a way to print all names of campers in queue in alphabetical order
+                System.out.println("The campers' names are: " + tree.toString().replace("{", " ").replace("}", " "));
             }
 
             //if line starts with 'S', print the number of boy and girl campers
@@ -118,8 +117,8 @@ public class CampPosanivee {
 
             //if line starts with 'P', print all campers' names in preorder
             if (action == 'P') {
-                //Traverse in preorder. HOW???
-                System.out.println("The campers' names in preorder is: " + PREORDER);//add a way to print all names in queue in preorder
+                //Prints campers' names in preorder as requested by text file command
+                System.out.println("The campers' names in preorder is: " + PREORDER);
                 System.out.println();
 
             }
@@ -131,10 +130,10 @@ public class CampPosanivee {
             }
         }
 
-            System.out.println("***Camp Posanivee Terminated***");
-            System.out.println("Good bye! ");
-        }
+        System.out.println("***Camp Posanivee Terminated***");
+        System.out.println("Good bye! ");
     }
+}
 
 
 

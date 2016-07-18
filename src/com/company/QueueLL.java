@@ -1,6 +1,6 @@
 package com.company;
 
-import static com.company.CampPosanivee.o;
+
 
 /****************************************************************************
  * Queue Implementation
@@ -12,59 +12,45 @@ import static com.company.CampPosanivee.o;
  * @instructor Dr. Jeremy Lanman
  *****************************************************************************/
 public class QueueLL < T > implements Queue < T > {
+
     public QueueLL() {
 
     }
 
-    private class node {
-        public Object data;
+    public class node <T> {
+        public node(T data, node next){
+            this.data = data;
+            this.next = next;
+        }
+        public T data;
         public node next;
     }
 
-    node front, back;
-    int count;
+    public node front, back;
+    public int count;
 
-    // QueueLL(int i) {
-        //makeEmpty();
-    //}
 
     // Transformers/Mutators
     public void enqueue(T element) {
-        node nn = new node();
-        nn.data = element;
-        nn.next = null;
+        node nn = new node( element, null);
+
         if (isEmpty())
             front = nn;
-        else
+        if (back != null)
             back.next = nn;
         back = nn;
         count++;
     }
 
-    //@Override
-    //public T dequeue() {
-        //return null;
-    //}
-
-    //@Override
-    //public void enqueue(Camper o) {
-
-    //}
-
-    //@Override
-    //public String toString(){
-        //return o.getName()+":" +o.getAge()+ " ";
-    //}
-
     public T dequeue() {
         if (isEmpty())
             return null;
-        T frontItem = (T) getFront();
+        T frontItem = this.getFront();
         front = front.next;
         count--;
         if (count == 0)
             back = null;
-        return (T) frontItem;
+        return frontItem;
     }
 
     public void makeEmpty() {
@@ -99,5 +85,14 @@ public class QueueLL < T > implements Queue < T > {
 
         return false;
     }
-}
+    public String toString(){
+        String ret = "";
+        node current = front;
+        for (int i = 0; i < count; i++){
+            ret += current.data.toString()+", ";
+            current = current.next;
+        }
 
+        return ret;
+    }
+}

@@ -11,14 +11,14 @@ package com.company;
  *****************************************************************************/
 public class BST <T> {
 
-    private class Node <E> {
-        Comparable <E> item;
+    private class Node <T> {
+        Comparable <T> item;
         Node left, right;
     }
 
-    Node root;  // ref to the root of the bst
+    public Node root;  // ref to the root of the bst
     int count;
-    public Queue Q; // create  for info
+    public QueueLL Q; // create  for info
 
     public static final int PREORDER = 0;
     public static final int INORDER = 1;
@@ -27,7 +27,7 @@ public class BST <T> {
     public BST() { // create an empty BST object
         root = null;
         count = 0;
-        Q = new QueueLL();  // create new LL for objects
+        Q = new QueueLL<T>();  // create new LL for objects
     }
 
     public void makeEmpty() {
@@ -53,7 +53,7 @@ public class BST <T> {
             return null;
         if (r.item.compareTo(x) == 0)
             return r.item;
-         //recursive case
+        //recursive case
         if (x.compareTo(r.item) < 0)
             return lookup(r.left, x);
         else
@@ -145,6 +145,7 @@ public class BST <T> {
         traverse(root, order);
     }
 
+
     public void traverse(Node r, int order) {
         if (r == null)
             return;
@@ -157,6 +158,11 @@ public class BST <T> {
         traverse(r.right, order);
         if (order == POSTORDER)
             Q.enqueue((Camper) r.item);
+    }
+
+    public String toString(){
+        reset();
+        return Q.toString();
     }
 }
 
