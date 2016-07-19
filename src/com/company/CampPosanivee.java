@@ -1,13 +1,8 @@
 package com.company;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
-
+import java.io.File;
+import java.io.IOException;
 import java.util.Scanner;
-import java.io.*;
-
-import static com.company.BST.INORDER;
-import static com.company.BST.PREORDER;
-import java.util.Arrays;
 
 /****************************************************************************
  * CampPosanivee
@@ -67,7 +62,6 @@ public class CampPosanivee {
 
             //if line starts with 'A', print the average age of the campers
             if (action == 'A') {
-                //if (!Q.isEmpty()) {
                     tree.traverse(tree.root, BST.INORDER);
                     double avgAge = 0;
                     double totAge = 0;
@@ -75,7 +69,7 @@ public class CampPosanivee {
                     for (int i = 0; i < num; i++) {
                         Camper c = (Camper) tree.Q.dequeue();
                         totAge += c.getAge();
-                        avgAge = totAge / num;
+                        avgAge = Math.round(totAge*1.0 / num*100)/100d;
                     }
                     System.out.println("The average age of the campers is: " + avgAge);
 
@@ -83,7 +77,7 @@ public class CampPosanivee {
 
                 //if line starts with 'H', print a list of commands
                 if (action == 'H') {
-                    System.out.println("The commands available are: E ( enroll camper)" + "\n " + " W( withdraw camper)" + "\n " + "D( display age and gender of camper)" + "\n" + "A( display average age of campers" + "\n" + "L ( display campers' names in alphabetical order" + "\n " + "S( display number of boys and girls" + "\n" + "L(List campers' names in preorder" + "\n" + "Q(quit)");
+                    System.out.println(" The commands available are:" + "\n" + " E(enroll camper)" + "\n " + "W(withdraw camper)" + "\n " + "D(display age and gender of camper)" + "\n" + " A(display average age of campers" + "\n" + " L(display campers' names in alphabetical order" + "\n " + "S(display number of boys and girls" + "\n" + " P(List campers' names in preorder" + "\n" + " Q(quit)");
                 }
 
                 //if line starts with 'E', enqueue/insert camper

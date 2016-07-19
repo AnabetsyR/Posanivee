@@ -1,15 +1,14 @@
-S
-E Kanga 26 F 
-E Tigger 28 M 
-E Pooh 31 M
-L 
-D Tigger 
-E Rabbit 30 M
-D Rabbit
-W Rabbit
-S 
+E Ana 30 F
+E Bryan 18 M
+E Margaret 26 F
+L
+D Bryan
+E Robert 35 M
+D Ana
+W Margaret
 E Eeyore 36 M 
-W Kanga 
+W Ana
+S
 P
 A
 Q
